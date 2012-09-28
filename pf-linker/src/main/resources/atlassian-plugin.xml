@@ -1,0 +1,19 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+    </plugin-info>
+
+    <workflow-function key="pf-linker" name="Links issues post-function" 
+                       class="ru.mail.jira.pluigns.LinkerPostFuctionFactory">
+        <description>This post-function links issues using data from custom fields.</description>
+        <function-class>ru.mail.jira.pluigns.LinkerPostFuction</function-class>
+        <orderable>true</orderable>
+        <unique>false</unique>
+        <deletable>true</deletable>
+        <resource type="velocity" name="view" location="templates/view-pf-linker.vm"/>
+        <resource type="velocity" name="input-parameters" location="templates/edit-pf-linker.vm"/>
+        <resource type="velocity" name="edit-parameters" location="templates/edit-pf-linker.vm"/>
+    </workflow-function>
+</atlassian-plugin>
